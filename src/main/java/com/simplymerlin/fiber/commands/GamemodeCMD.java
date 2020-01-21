@@ -1,9 +1,13 @@
 package com.simplymerlin.fiber.commands;
 
 import co.aikar.commands.BaseCommand;
-import co.aikar.commands.annotation.*;
+import co.aikar.commands.annotation.CommandAlias;
+import co.aikar.commands.annotation.CommandCompletion;
+import co.aikar.commands.annotation.CommandPermission;
+import co.aikar.commands.annotation.Description;
+import co.aikar.commands.annotation.Subcommand;
 import co.aikar.commands.bukkit.contexts.OnlinePlayer;
-import com.simplymerlin.fiber.utils.Chat;
+import com.simplymerlin.fiber.utils.ChatUtils;
 import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -17,28 +21,28 @@ public class GamemodeCMD extends BaseCommand {
     @CommandPermission("fiber.gamemode.creative")
     public void onCreative(Player p) {
         p.setGameMode(GameMode.CREATIVE);
-        Chat.send(p, "&bYour gamemode has been changed to &3Creative&b.");
+        ChatUtils.send(p, "&bYour gamemode has been changed to &3Creative&b.");
     }
     @Subcommand("survival|0")
     @CommandAlias("gms|survival|fgms|fsurvival")
     @CommandPermission("fiber.gamemode.survival")
     public void onSurvival(Player p) {
         p.setGameMode(GameMode.SURVIVAL);
-        Chat.send(p, "&bYour gamemode has been changed to &3Survival&b.");
+        ChatUtils.send(p, "&bYour gamemode has been changed to &3Survival&b.");
     }
     @Subcommand("adventure|2")
     @CommandAlias("gma|adventure|fgma|fadventure")
     @CommandPermission("fiber.gamemode.adventure")
     public void onAdventure(Player p) {
         p.setGameMode(GameMode.ADVENTURE);
-        Chat.send(p, "&bYour gamemode has been changed to &3Adventure&b.");
+        ChatUtils.send(p, "&bYour gamemode has been changed to &3Adventure&b.");
     }
     @Subcommand("spectator|3")
     @CommandAlias("gmsp|spectator|fgmsp|fspectator")
     @CommandPermission("fiber.gamemode.spectator")
     public void onSpectator(Player p) {
         p.setGameMode(GameMode.SPECTATOR);
-        Chat.send(p, "&bYour gamemode has been changed to &3Spectator&b.");
+        ChatUtils.send(p, "&bYour gamemode has been changed to &3Spectator&b.");
     }
 
     @Subcommand("creative|1")
@@ -48,7 +52,7 @@ public class GamemodeCMD extends BaseCommand {
     public void onCreativeOther(CommandSender sender, OnlinePlayer onlinetarget) {
         Player target = onlinetarget.player;
         target.setGameMode(GameMode.CREATIVE);
-        Chat.send(sender, "&bThe gamemode of " + target.getName() + "&b has been changed to &3Creative&b.");
+        ChatUtils.send(sender, "&bThe gamemode of " + target.getName() + "&b has been changed to &3Creative&b.");
     }
     @Subcommand("survival|0")
     @CommandAlias("gms|survival|fgms|fsurvival")
@@ -57,7 +61,7 @@ public class GamemodeCMD extends BaseCommand {
     public void onSurvivalOther(CommandSender sender, OnlinePlayer onlinetarget) {
         Player target = onlinetarget.player;
         target.setGameMode(GameMode.SURVIVAL);
-        Chat.send(sender, "&bThe gamemode of " + target.getName() + "&b has been changed to &3Survival&b.");
+        ChatUtils.send(sender, "&bThe gamemode of " + target.getName() + "&b has been changed to &3Survival&b.");
     }
     @Subcommand("adventure|2")
     @CommandAlias("gma|adventure|fgma|fadventure")
@@ -66,7 +70,7 @@ public class GamemodeCMD extends BaseCommand {
     public void onAdventureOther(CommandSender sender, OnlinePlayer onlinetarget) {
         Player target = onlinetarget.player;
         target.setGameMode(GameMode.ADVENTURE);
-        Chat.send(sender, "&bThe gamemode of " + target.getName() + "&b has been changed to &3Adventure&b.");
+        ChatUtils.send(sender, "&bThe gamemode of " + target.getName() + "&b has been changed to &3Adventure&b.");
     }
     @Subcommand("spectator|3")
     @CommandAlias("gmsp|spectator|fgmsp|fspectator")
@@ -75,7 +79,7 @@ public class GamemodeCMD extends BaseCommand {
     public void onSpectatorOther(CommandSender sender, OnlinePlayer onlinetarget) {
         Player target = onlinetarget.player;
         target.setGameMode(GameMode.SPECTATOR);
-        Chat.send(sender, "&bThe gamemode of " + target.getName() + "&b has been changed to &3Spectator&b.");
+        ChatUtils.send(sender, "&bThe gamemode of " + target.getName() + "&b has been changed to &3Spectator&b.");
     }
 
 

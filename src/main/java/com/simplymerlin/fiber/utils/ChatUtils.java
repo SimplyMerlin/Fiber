@@ -4,7 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
-public class Chat {
+public class ChatUtils {
 
     public static void send(CommandSender receiver, String message) {
         receiver.sendMessage(colorize(message));

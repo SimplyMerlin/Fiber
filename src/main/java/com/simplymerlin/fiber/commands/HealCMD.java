@@ -1,9 +1,13 @@
 package com.simplymerlin.fiber.commands;
 
 import co.aikar.commands.BaseCommand;
-import co.aikar.commands.annotation.*;
+import co.aikar.commands.annotation.CommandAlias;
+import co.aikar.commands.annotation.CommandCompletion;
+import co.aikar.commands.annotation.CommandPermission;
+import co.aikar.commands.annotation.Default;
+import co.aikar.commands.annotation.Description;
 import co.aikar.commands.bukkit.contexts.OnlinePlayer;
-import com.simplymerlin.fiber.utils.Chat;
+import com.simplymerlin.fiber.utils.ChatUtils;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -23,7 +27,7 @@ public class HealCMD extends BaseCommand {
         for(PotionEffect effect : p.getActivePotionEffects()) {
             p.removePotionEffect(effect.getType());
         }
-        Chat.send(p, "&bYou have been &3healed&b.");
+        ChatUtils.send(p, "&bYou have been &3healed&b.");
     }
 
     @Default
@@ -32,7 +36,7 @@ public class HealCMD extends BaseCommand {
     public void onTarget(CommandSender sender, OnlinePlayer onlinetarget) {
         Player target = onlinetarget.player;
         if(target.getHealth() == 0) {
-            Chat.send(sender, "&bYou can't heal someone who is dead!");
+            ChatUtils.send(sender, "&bYou can't heal someone who is dead!");
             return;
         }
         target.setHealth(target.getAttribute(Attribute.GENERIC_MAX_HEALTH).getDefaultValue());
@@ -42,7 +46,7 @@ public class HealCMD extends BaseCommand {
         for(PotionEffect effect : target.getActivePotionEffects()) {
             target.removePotionEffect(effect.getType());
         }
-        Chat.send(sender, "&3" + target.getName() + "&b has been &3healed&b.");
+        ChatUtils.send(sender, "&3" + target.getName() + "&b has been &3healed&b.");
     }
 
 }

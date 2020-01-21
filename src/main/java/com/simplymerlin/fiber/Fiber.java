@@ -4,8 +4,6 @@ import co.aikar.commands.PaperCommandManager;
 import com.simplymerlin.fiber.commands.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Locale;
-
 public final class Fiber extends JavaPlugin {
 
     @Override
