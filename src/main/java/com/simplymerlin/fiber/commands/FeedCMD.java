@@ -1,9 +1,13 @@
 package com.simplymerlin.fiber.commands;
 
 import co.aikar.commands.BaseCommand;
-import co.aikar.commands.annotation.*;
+import co.aikar.commands.annotation.CommandAlias;
+import co.aikar.commands.annotation.CommandCompletion;
+import co.aikar.commands.annotation.CommandPermission;
+import co.aikar.commands.annotation.Default;
+import co.aikar.commands.annotation.Description;
 import co.aikar.commands.bukkit.contexts.OnlinePlayer;
-import com.simplymerlin.fiber.utils.Chat;
+import com.simplymerlin.fiber.utils.ChatUtils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -17,7 +21,7 @@ public class FeedCMD extends BaseCommand {
         p.setFoodLevel(20);
         p.setSaturation(10);
         p.setExhaustion(0F);
-        Chat.send(p, "&bYour hunger bar has been filled.");
+        ChatUtils.send(p, "&bYour hunger bar has been filled.");
     }
     @Default
     @CommandPermission("fiber.feed.other")
@@ -27,7 +31,7 @@ public class FeedCMD extends BaseCommand {
         target.setFoodLevel(20);
         target.setSaturation(10);
         target.setExhaustion(0F);
-        Chat.send(sender, "&3" + target.getName() + "&b's hunger bar has been filled.");
+        ChatUtils.send(sender, "&3" + target.getName() + "&b's hunger bar has been filled.");
     }
 
 }

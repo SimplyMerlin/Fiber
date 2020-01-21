@@ -1,9 +1,13 @@
 package com.simplymerlin.fiber.commands;
 
 import co.aikar.commands.BaseCommand;
-import co.aikar.commands.annotation.*;
+import co.aikar.commands.annotation.CommandAlias;
+import co.aikar.commands.annotation.CommandCompletion;
+import co.aikar.commands.annotation.CommandPermission;
+import co.aikar.commands.annotation.Default;
+import co.aikar.commands.annotation.Description;
 import co.aikar.commands.bukkit.contexts.OnlinePlayer;
-import com.simplymerlin.fiber.utils.Chat;
+import com.simplymerlin.fiber.utils.ChatUtils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -15,9 +19,9 @@ public class FlyCMD extends BaseCommand {
     @CommandPermission("fiber.fly")
     public void onDefault(Player p) {
         if(p.getAllowFlight()) {
-            Chat.send(p, "&bFlight has been &3disabled&b.");
+            ChatUtils.send(p, "&bFlight has been &3disabled&b.");
         }else {
-            Chat.send(p, "&bFlight has been &3enabled&b.");
+            ChatUtils.send(p, "&bFlight has been &3enabled&b.");
         }
         p.setAllowFlight(!p.getAllowFlight());
     }
@@ -29,9 +33,9 @@ public class FlyCMD extends BaseCommand {
         Player target = onlinetarget.player;
         String tname = target.getName();
         if(target.getAllowFlight()) {
-            Chat.send(sender, "&bFlight has been &3disabled&b for &3" + tname + "&b.");
+            ChatUtils.send(sender, "&bFlight has been &3disabled&b for &3" + tname + "&b.");
         }else {
-            Chat.send(sender, "&bFlight has been &3enabled&b for &3" + tname + "&b.");
+            ChatUtils.send(sender, "&bFlight has been &3enabled&b for &3" + tname + "&b.");
         }
         target.setAllowFlight(!target.getAllowFlight());
     }
