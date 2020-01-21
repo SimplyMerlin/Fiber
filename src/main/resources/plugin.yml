@@ -1,0 +1,6 @@
+name: Fiber
+version: ${project.version}
+main: com.simplymerlin.fiber.Fiber
+api-version: 1.13
+authors: [SimplyMerlin]
+description: Fiber by SimplyMerlin.
